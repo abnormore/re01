@@ -1,74 +1,73 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>点击播放对应音频</title>  
-<style>  
-  .audio-control {  
-    cursor: pointer; /* 显示为可点击状态 */  
-  }  
-</style>  
-</head>  
-<body>  
-  
-<p class="audio-control" data-audio="audio1">单击播放第一段音频</p>  
-<audio id="audio1" src="MP3\1.MP3" preload="auto"></audio>  
-  
-<p class="audio-control" data-audio="audio2">单击播放第二段音频</p>  
-<audio id="audio2" src="MP3\1.MP3" preload="auto"></audio>  
-  
-<p class="audio-control" data-audio="audio3">单击播放第三段音频</p>  
-<audio id="audio3" src="MP3\1.MP3" preload="auto"></audio>  
-  
-<script>  
-var currentAudio; // 当前播放的音频元素  
-  
-// 获取所有的音频控制元素  
-var audioControls = document.querySelectorAll('.audio-control');  
-  
-audioControls.forEach(function(control) {  
-  control.addEventListener('click', function(event) {  
-    var audioId = this.getAttribute('data-audio'); // 获取对应的音频ID  
-    var audioElement = document.getElementById(audioId); // 获取音频元素  
-      
-    // 停止当前播放的音频（如果有）  
-    if (currentAudio && currentAudio !== audioElement) {  
-      currentAudio.pause();  
-      currentAudio.currentTime = 0; // 重置音频位置到开头  
-    }  
-      
-    // 如果点击的是当前播放的音频，则停止它；否则播放新音频  
-    if (currentAudio === audioElement) {  
-      audioElement.pause();  
-      //this.textContent = '单击播放' + this.textContent.slice(7); // 恢复文本为“单击播放音频”  
-      currentAudio = null; // 清除当前音频  
-    } else {  
-      audioElement.currentTime = 0; // 将音频时间重置为0秒  
-      audioElement.play();  
-      //this.textContent = '单击停止' + this.textContent.slice(5); // 修改文本为“单击停止播放音频”  
-      currentAudio = audioElement; // 设置当前音频  
-    }  
-  });  
-  
-  control.addEventListener('dblclick', function(event) {  
-    var audioId = this.getAttribute('data-audio'); // 获取对应的音频ID  
-    var audioElement = document.getElementById(audioId); // 获取音频元素  
-      
-    // 停止当前播放的音频（如果有）  
-    if (currentAudio && currentAudio !== audioElement) {  
-      currentAudio.pause();  
-      currentAudio.currentTime = 0; // 重置音频位置到开头  
-    }  
-      
-    // 双击时播放新音频或重新播放当前音频  
-    audioElement.currentTime = 0; // 将音频时间重置为0秒  
-    audioElement.play();  
-    //this.textContent = '单击停止' + this.textContent.slice(5); // 修改文本为“单击停止播放音频”  
-    currentAudio = audioElement; // 设置当前音频  
-  });  
-});  
-</script>  
-  
-</body>  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>音频播放器示例</title>
+    <style>
+      p {
+        margin: 1em 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p>1</p>
+    <p id="text1">廖: 朋友！中国是生育我们的母亲。你们觉得这位母亲可爱吗？</p>
+    <p id="text2">合: 可爱，当然可爱！</p>
+    <p id="text3">赵: 是的，我们都觉得这位母亲是蛮可爱蛮可爱的。</p>
+    <p id="text4">叶: 以言气候，中国处于温带，不十分热，也不十分冷，好像我们母亲的体温，不高不低，最适宜于孩儿们的偎依。</p>
+    <p id="text5">宋: 以言国土，中国土地广大，纵横万数千里，好像我们的母亲是一个身体魁大、胸宽背阔的妇人。</p>
+    <p id="text6">施: 是啊，中国许多有名的崇山大岭，长江巨河，以及大小湖泊，岂不象征着我们母亲丰满坚实的肥肤上之健美的肉纹和肉窝？</p>
+    <p id="text7">吴: 母亲！美丽的母亲，可爱的母亲，只因你受着人家的压榨和剥削，弄成贫穷已极；</p>
+    <p id="text8">廖: 不但不能买一件新的好看的衣服，把你自己装饰起来；</p>
+    <p id="text9">赵: 甚至不能买块香皂将你全身洗擦洗擦。</p>
+    <p id="text10">叶：我们的母亲太可怜了，一个天生的丽人，现在却变成叫化的婆子！</p>
+    <p id="text11">宋：站在欧洲、美洲各位华贵的太太面前，固然是深愧不如啊！</p>
+    <p>2</p>
+    <p id="text12">施: 听着！朋友！母亲躲到一边去哭泣了，哭得伤心得很呀！她似乎在骂着：</p>
+    <p id="text13">吴: 难道我四万万的孩子，都是白生了吗？</p>
+    <p id="text14">廖: 难道他们不知道团结起伟大的力量，与敌人斗争吗？</p>
+    <p id="text15">赵: 难道他们不想将母亲从敌人手里救出来 ，把母亲也装饰起来，成为世界上一个最出色、最美丽、最令人尊敬的母亲吗？</p>
+    <p id="text16">叶: 朋友，听到没有，母亲哀痛的哭骂？</p>
+    <p id="text17">宋: 是啊，是啊，母亲骂得对，十分对啊！</p>
+    <p id="text18">施: 我们不能怪母亲好哭，只怪得我们之中出了败类，自己压制自己， 眼睁睁的望着我们这位挺慈祥美丽的母亲，</p>
+    <p id="text19">吴:受着许多无谓的屈辱，残暴的蹂躏！</p>
+    <p>3</p>
+    <p id="text20">廖: 不错，目前的中国，固然是江山破碎，国蔽民穷。</p>
+    <p id="text21">叶: 但谁能断言，中国没有一个光明的前途呢？</p>
+    <p id="text22">赵: 不，决不会的，我们相信，中国一定有个可赞美的光明前途。</p>
+    <p id="text23">宋: 是的，</p>
+    <p id="text24">宋 施 吴:是的</p>
+    <p id="text25">合: 是的，我们相信，中国一定有个可赞美的光明前途！</p>
+    <p id="text26">施: 朋友 ，我相信，到那时，到处都是活跃跃的创造，</p>
+    <p id="text27">吴: 到处都是日新月异的进步。</p>
+    <p id="text28">廖 赵 叶: 欢歌将代替了悲叹</p>
+    <p id="text29">宋 施 吴: 笑脸将代替了哭脸</p>
+    <p id="text30">廖 赵 叶: 富裕将代替了贫穷</p>
+    <p id="text31">宋 施 吴: 康健将代替了疾苦</p>
+    <p id="text32">廖: 生之快乐将代替了死之悲哀</p>
+    <p id="text33">合: 明媚的花园，将代替了 凄凉的荒地！</p>
+    <p id="text34">叶: 这时，我们民族就可以无愧色的立在人类的面前，</p>
+    <p id="text35">赵: 而生育我们的母亲，也会最美丽地装饰起来，与世界上各位母亲平等的携手了。</p>
+    <p id="text36">宋: 这么光荣的一天，决不在辽远的将来，而在很近的将来。我们可以这样相信的，</p>
+    <p id="text37">施 吴: 是的，我们可以这样相信的，朋友！</p>
+    <p>4</p>
+    <p id="text38">吴: 朋友，我的话说得太啰嗦厌听了吧！</p>
+    <p id="text39">施: 好，我只说下面几句了。我老实的告诉你们，我要打倒帝国主义为中国民族解放之心还是火一般的炽烈。</p>
+    <p id="text40">宋: 不过，现在我是一个待决之囚呀！</p>
+    <p id="text41">赵: 假如我还能生存，那我生存一天就要为中国呼喊一天；</p>
+    <p id="text42">叶: 假如我不能生存—死了， 我流血的地方，或者我瘗（yì）骨的地方，或许会长出一朵可爱的花来，</p>
+    <p id="text43">廖: 这朵花你们就看作是我的精诚的寄托吧！</p>
+    <p id="text44">廖 叶: 在微风的吹拂中，如果那朵花是上下点头，</p>
+    <p id="text45">赵: 那就可视为我对于为中国民族解放奋斗的爱国志士们在致以热诚的敬礼；</p>
+    <p id="text46">宋 施: 如果那朵花是左右摇摆，</p>
+    <p id="text47">吴: 那就可视为我在提劲儿唱着革命之歌，鼓励战士们前进啦！</p>
+    <p id="text48">廖 宋: 把所有人的才能智慧，都提供于民族的拯救吧！</p>
+    <p id="text49">赵 施 : 让可爱的中国扬帆起航！</p>
+    <p id="text50">合:起航，起航，扬帆起航！</p>
+    <!-- 添加更多段落，如果有的话 -->
+
+    <script src="script.js"></script>
+  </body>
 </html>
